@@ -9,23 +9,38 @@ public class Vehicle {
     private int odometerReading;
     private float price;
 
+    //constructor no args
+    public Vehicle() {
+        this.vehicleId = 0;
+        this.makeModel = "";
+        this.color = "";
+        this.odometerReading = 0;
+        this.price = 0.0f;
+    }
 
-
+    //constructor with args
+    public Vehicle(long vehicleId, String makeModel, String color, int odometerReading, float price) {
+        this.vehicleId = vehicleId;
+        this.makeModel = makeModel;
+        this.color = color;
+        this.odometerReading = odometerReading;
+        this.price = price;
+    }
 
     //getters setters
     public long getVehicleId() {
         return vehicleId;
     }
     public void setVehicleId(long newVehicleID) {
-        vehicleId = newVehicleID;
+        this.vehicleId = newVehicleID;
     }
 
 
     public String getMakeModel() {
-        return  makeModel;
+        return makeModel;
     }
     public void setMakeModel(String newMakeModel) {
-        makeModel = newMakeModel;
+        this.makeModel = newMakeModel;
     }
 
 
@@ -33,7 +48,7 @@ public class Vehicle {
         return color;
     }
     public void setColor(String newColor) {
-
+        this.color = newColor;
     }
 
 
@@ -41,7 +56,7 @@ public class Vehicle {
         return odometerReading;
     }
     public void setOdometerReading(int newOdometerReading) {
-
+        this.odometerReading = newOdometerReading;
     }
 
 
@@ -49,9 +64,8 @@ public class Vehicle {
         return price;
     }
     public void setPrice(float newPrice) {
-
+        this.price = newPrice;
     }
-
 
 
 }
