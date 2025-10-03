@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class Main {
 
     private static final Scanner getInput = new Scanner(System.in);
-
     private static Vehicle[] vehicleInventory = new Vehicle[20];
 
+
     //program feature functions
+    //todo:most of these functions
 
     //lists all vehicles in vehicleInventory
     public static void listInventory() {
