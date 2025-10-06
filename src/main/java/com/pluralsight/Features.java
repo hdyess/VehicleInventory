@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -71,14 +70,24 @@ public class Features {
     //adds a vehicle to vehicleInventory
     public static void addVehicle() {
 
-        ConsoleHelper.promptForLong("Vehicle ID: ");
+        long newVehicleID = ConsoleHelper.promptForLong("Vehicle ID: ");
+        String newMakeModel = ConsoleHelper.promptForString("Vehicle make/model: ");
+        String newColor = ConsoleHelper.promptForString("Vehicle color: ");
+        int newOdometer = ConsoleHelper.promptForInt("Vehicle odometer reading: ");
+        float newPrice = ConsoleHelper.promptForFloat("Vehicle price: ");
 
+        int firstNullIndex = 0;
 
-        ConsoleHelper.promptForString("Vehicle make/model: ");
+        //todo: this is messy and can be condensed
+        //this should be it's own method? (where?)
+        for (int i = 0; i < Main.vehicleInventory.length; i++) {
+            if (Main.vehicleInventory[i] == null) {
+                firstNullIndex = i;
+                break;
+            }
+        }
 
-
-
-
+        Main.vehicleInventory[firstNullIndex] = new Vehicle(newVehicleID, newMakeModel, newColor, newOdometer, newPrice);
 
     }
 
