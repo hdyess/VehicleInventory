@@ -6,39 +6,8 @@ import java.util.Scanner;
 public class Main {
 
     private static final Scanner getInput = new Scanner(System.in);
-    private static Vehicle[] vehicleInventory = new Vehicle[20];
+    public static Vehicle[] vehicleInventory = new Vehicle[20];
 
-
-    //program feature functions
-    //todo:most of these functions
-
-    //lists all vehicles in vehicleInventory
-    public static void listInventory() {
-        System.out.println("\n");
-        for (Vehicle car : vehicleInventory) {
-            System.out.println(car);
-        }
-    }
-
-    //searches vehicleInventory by make and model
-    public static void searchMakeModel() {
-
-    }
-
-    //searches vehicles by price range
-    public static void searchPriceRange() {
-
-    }
-
-    //searches vehicles by color
-    public static void searchColor() {
-
-    }
-
-    //adds a vehicle to vehicleInventory
-    public static void addVehicle() {
-
-    }
 
     //actual program with hard coded stuff
     public static void main(String[] args) {
@@ -56,30 +25,32 @@ public class Main {
         vehicleInventory[4] = new Vehicle(101125,"Subaru Outback","Green",55000,14500);
         vehicleInventory[5] = new Vehicle(101126,"Jeep Wrangler","Yellow",30000,16000);
 
-
         //process loop
         while (running) {
 
-            //prompt user
-            System.out.println("What would you like to do?\n1 - List all vehicles\n2 - Search by make/model");
-
-            //
-            switch (getInput.nextInt()) {
-                case 1:
-                    listInventory();
-                case 2:
-                    searchMakeModel();
-                case 3:
-                    searchPriceRange();
-                case 4:
-                    searchColor();
-                case 5:
-                    addVehicle();
-                case 6:
+            // todo: this feels like it can be made less bad
+            //string in switch case is super long and bad, maybe promptForString can be condensed
+            switch (ConsoleHelper.promptForString("\nWhat would you like to do?\n\n--------------------\n1, l - List all vehicles\n2, m - Search by make/model\n3, r - Search by price range\n4, c - Search by color\n5, a - Add a vehicle\n6, q - Quit\n--------------------\n").toLowerCase()) {
+                case "1": case "l":
+                    Features.listInventory();
+                    break;
+                case "2": case "m":
+                    Features.searchMakeModel();
+                    break;
+                case "3": case "r":
+                    Features.searchPriceRange();
+                    break;
+                case "4": case "c":
+                    Features.searchColor();
+                    break;
+                case "5": case "a":
+                    Features.addVehicle();
+                    break;
+                case "6": case "q":
                     running = false;
                     break;
                 default:
-                    System.out.println("Please select a valid option");
+                    System.out.println("\nPlease select a valid option");
             }
 
 
