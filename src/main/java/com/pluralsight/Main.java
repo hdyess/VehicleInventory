@@ -1,23 +1,16 @@
 package com.pluralsight;
 
-//import java.util.Arrays;
-import java.util.Scanner;
-
 public class Main {
 
-    private static final Scanner getInput = new Scanner(System.in);
     public static Vehicle[] vehicleInventory = new Vehicle[20];
 
 
     //actual program with hard coded stuff
     public static void main(String[] args) {
 
-        boolean running = true;
-        int vehicleCount;
+        //int vehicleCount;
 
-        //initialize and preload vehicle inventory
-
-
+        //preload vehicle inventory w/ sample data
         vehicleInventory[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
         vehicleInventory[1] = new Vehicle(101122, "Toyota Camry","Blue",60000,11000);
         vehicleInventory[2] = new Vehicle(101123, "Chevrolet Malibu", "Black",50000,9700);
@@ -25,7 +18,10 @@ public class Main {
         vehicleInventory[4] = new Vehicle(101125,"Subaru Outback","Green",55000,14500);
         vehicleInventory[5] = new Vehicle(101126,"Jeep Wrangler","Yellow",30000,16000);
 
+
         //process loop
+        boolean running = true;
+
         while (running) {
 
             // todo: this feels like it can be made less bad
